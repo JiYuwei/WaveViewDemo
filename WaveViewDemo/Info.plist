@@ -36,7 +36,7 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false/>
+	<true/>
 	<key>UILaunchStoryboardName</key>
 	<string></string>
 </dict>
