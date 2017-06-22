@@ -9,6 +9,8 @@
 #import "MeViewController.h"
 #import "HeaderView.h"
 
+static const CGFloat cellHeight = 50;
+
 @interface MeViewController () <UITableViewDataSource,UITableViewDelegate>
 
 @property(nonatomic,strong)UITableView *tableView;
@@ -46,7 +48,8 @@
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, -20, SCREENWIDTH, SCREENHEIGHT + 20 - 49) style:UITableViewStyleGrouped];
     _tableView.dataSource = self;
     _tableView.delegate = self;
-    _tableView.separatorColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1];
+//    _tableView.separatorColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1];
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:_tableView];
     
     _headerView = [[HeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, 240)];
@@ -73,6 +76,11 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        if (indexPath.row != [_dataArray[indexPath.section] count] - 1) {
+            UIView *line = [[UIView alloc] initWithFrame:CGRectMake(15, cellHeight - 0.5, SCREENWIDTH - 15, 0.5)];
+            line.backgroundColor = [UIColor colorWithRed:0.94 green:0.94 blue:0.94 alpha:1];
+            [cell addSubview:line];
+        }
     }
     
     cell.textLabel.text = _dataArray[indexPath.section][indexPath.row];
@@ -82,7 +90,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 50;
+    return cellHeight;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -100,6 +108,8 @@
 {
     return 20;
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

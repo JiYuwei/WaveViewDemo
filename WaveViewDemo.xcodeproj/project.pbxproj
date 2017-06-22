@@ -26,6 +26,7 @@
 		09CFACE31EFBC89B00E0F94C /* mine_icn_inactive@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09CFACDB1EFBC89B00E0F94C /* mine_icn_inactive@3x.png */; };
 		09CFACE81EFBDD0A00E0F94C /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09CFACE71EFBDD0A00E0F94C /* HeaderView.m */; };
 		09CFACEC1EFBE42F00E0F94C /* header@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09CFACEB1EFBE42F00E0F94C /* header@2x.png */; };
+		09CFACF01EFBEA0C00E0F94C /* JYWaveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09CFACEF1EFBEA0C00E0F94C /* JYWaveView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,8 @@
 		09CFACE61EFBDD0A00E0F94C /* HeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HeaderView.h; path = Views/HeaderView.h; sourceTree = "<group>"; };
 		09CFACE71EFBDD0A00E0F94C /* HeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HeaderView.m; path = Views/HeaderView.m; sourceTree = "<group>"; };
 		09CFACEB1EFBE42F00E0F94C /* header@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "header@2x.png"; path = "images/header@2x.png"; sourceTree = "<group>"; };
+		09CFACEE1EFBEA0C00E0F94C /* JYWaveView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JYWaveView.h; path = JYWaveView/JYWaveView.h; sourceTree = "<group>"; };
+		09CFACEF1EFBEA0C00E0F94C /* JYWaveView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JYWaveView.m; path = JYWaveView/JYWaveView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +131,7 @@
 		09CFAC8A1EFBB91D00E0F94C /* WaveViewDemo */ = {
 			isa = PBXGroup;
 			children = (
+				09CFACED1EFBE9AB00E0F94C /* JYWaveView */,
 				09CFACE51EFBD90500E0F94C /* Views */,
 				09CFAC8E1EFBB91D00E0F94C /* AppDelegate.h */,
 				09CFAC8F1EFBB91D00E0F94C /* AppDelegate.m */,
@@ -197,6 +201,15 @@
 				09CFACE71EFBDD0A00E0F94C /* HeaderView.m */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		09CFACED1EFBE9AB00E0F94C /* JYWaveView */ = {
+			isa = PBXGroup;
+			children = (
+				09CFACEE1EFBEA0C00E0F94C /* JYWaveView.h */,
+				09CFACEF1EFBEA0C00E0F94C /* JYWaveView.m */,
+			);
+			name = JYWaveView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,6 +355,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09CFACF01EFBEA0C00E0F94C /* JYWaveView.m in Sources */,
 				09CFACE81EFBDD0A00E0F94C /* HeaderView.m in Sources */,
 				09CFACC01EFBBBE700E0F94C /* BaseTabBarController.m in Sources */,
 				09CFACCC1EFBBDB500E0F94C /* BaseViewController.m in Sources */,

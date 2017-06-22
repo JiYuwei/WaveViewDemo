@@ -7,6 +7,14 @@
 //
 
 #import "HeaderView.h"
+#import "JYWaveView.h"
+
+@interface HeaderView ()
+
+@property(nonatomic,strong)JYWaveView *doubleWaveView;
+
+@end
+
 
 @implementation HeaderView
 
@@ -15,6 +23,7 @@
     if (self = [super initWithFrame:frame]) {
         self.backgroundColor = MAIN_COLOR;
         [self customHeaderView];
+        [self setUpWaveView];
     }
     
     return self;
@@ -49,7 +58,11 @@
     
 }
 
-
+-(void)setUpWaveView
+{
+    _doubleWaveView = [[JYWaveView alloc] initWithFrame:CGRectMake(0, self.bounds.size.height - 8, self.bounds.size.width, 8)];
+    [self addSubview:_doubleWaveView];
+}
 
 
 /*
