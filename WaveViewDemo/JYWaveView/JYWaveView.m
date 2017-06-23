@@ -12,8 +12,8 @@
 @interface JYWaveView ()
 
 @property(nonatomic,strong)CADisplayLink *waveDisplayLink;
-@property(nonatomic,strong)CAShapeLayer *firstWaveLayer;
-@property(nonatomic,strong)CAShapeLayer *secondWaveLayer;
+@property(nonatomic,strong)CAShapeLayer *frontWaveLayer;
+@property(nonatomic,strong)CAShapeLayer *insideWaveLayer;
 
 @property(nonatomic,strong)WeakProxy *proxy;
 
@@ -29,7 +29,10 @@
     CGFloat offsetF;    // φ firstLayer
     CGFloat offsetS;    // φ secondLayer
     CGFloat currentK;   // k
-    CGFloat waveSpeed;  // 移动速度
+    CGFloat waveSpeedF; // 外层波形移动速度
+    CGFloat waveSpeedS; // 内层波形移动速度
+    
+    WaveDirectionType direction; //移动方向
 }
 
 /*
@@ -46,32 +49,44 @@
         _proxy = [WeakProxy alloc];
         _proxy.target = self;
         
+        [self configWaveProperties];
         [self createWaves];
     }
     
     return self;
 }
 
+-(void)configWaveProperties
+{
+    _frontColor    = [UIColor blackColor];
+    _insideColor   = [UIColor grayColor];
+    _frontSpeed    = 0.01;
+    _insideSpeed   = 0.01 * 1.2;
+    _waveOffset    = M_PI;
+    _directionType = WaveDirectionTypeBackWard;
+}
+
 -(void)createWaves
 {
-    waveWidth  = self.frame.size.width;
-    waveHeight = self.frame.size.height;
+    waveWidth   = self.frame.size.width;
+    waveHeight  = self.frame.size.height;
     
-    waveA      = waveHeight / 2;
-    waveW      = (M_PI * 2 / waveWidth) / 1.5;
-    offsetF    = 0;
-    offsetS    = M_PI;
-    currentK   = waveHeight / 2;
-    waveSpeed  = 0.01;
+    waveA       = waveHeight / 2;
+    waveW       = (M_PI * 2 / waveWidth) / 1.5;
+    offsetF     = 0;
+    offsetS     = offsetF + _waveOffset;
+    currentK    = waveHeight / 2;
+    waveSpeedF  = _frontSpeed;
+    waveSpeedS  = _insideSpeed;
+    direction   = _directionType;
     
+    _frontWaveLayer = [CAShapeLayer layer];
+    _frontWaveLayer.fillColor = _frontColor.CGColor;
+    [self.layer addSublayer:_frontWaveLayer];
     
-    _firstWaveLayer = [CAShapeLayer layer];
-    _firstWaveLayer.fillColor = [UIColor whiteColor].CGColor;
-    [self.layer addSublayer:_firstWaveLayer];
-    
-    _secondWaveLayer = [CAShapeLayer layer];
-    _secondWaveLayer.fillColor = [UIColor colorWithRed:0.4 green:0.78 blue:0.68 alpha:1].CGColor;
-    [self.layer insertSublayer:_secondWaveLayer below:_firstWaveLayer];
+    _insideWaveLayer = [CAShapeLayer layer];
+    _insideWaveLayer.fillColor = _insideColor.CGColor;
+    [self.layer insertSublayer:_insideWaveLayer below:_frontWaveLayer];
     
     
     _waveDisplayLink = [CADisplayLink displayLinkWithTarget:self.proxy selector:@selector(refreshCurrentWave:)];
@@ -80,11 +95,11 @@
 
 -(void)refreshCurrentWave:(CADisplayLink *)displayLink
 {
-    offsetF += waveSpeed;
-    offsetS += waveSpeed * 1.2;
+    offsetF += waveSpeedF * direction;
+    offsetS += waveSpeedS * direction;
     
-    [self drawCurrentWaveWithLayer:_firstWaveLayer offset:offsetF];
-    [self drawCurrentWaveWithLayer:_secondWaveLayer offset:offsetS];
+    [self drawCurrentWaveWithLayer:_frontWaveLayer offset:offsetF];
+    [self drawCurrentWaveWithLayer:_insideWaveLayer offset:offsetS];
 }
 
 -(void)drawCurrentWaveWithLayer:(CAShapeLayer *)waveLayer offset:(CGFloat)offset
@@ -121,6 +136,55 @@
 }
 
 
+#pragma mark - WaveProperties Setter Methods
+
+-(void)setFrontColor:(UIColor *)frontColor
+{
+    if (_frontColor != frontColor) {
+        _frontColor = frontColor;
+        _frontWaveLayer.fillColor = _frontColor.CGColor;
+    }
+}
+
+-(void)setInsideColor:(UIColor *)insideColor
+{
+    if (_insideColor != insideColor) {
+        _insideColor = insideColor;
+        _insideWaveLayer.fillColor = _insideColor.CGColor;
+    }
+}
+
+-(void)setFrontSpeed:(CGFloat)frontSpeed
+{
+    if (_frontSpeed != frontSpeed) {
+        _frontSpeed = frontSpeed;
+        waveSpeedF = _frontSpeed;
+    }
+}
+
+-(void)setInsideSpeed:(CGFloat)insideSpeed
+{
+    if (_insideSpeed != insideSpeed) {
+        _insideSpeed = insideSpeed;
+        waveSpeedS = _insideSpeed;
+    }
+}
+
+-(void)setWaveOffset:(CGFloat)waveOffset
+{
+    if (_waveOffset != waveOffset) {
+        _waveOffset = waveOffset;
+        offsetS = offsetF + _waveOffset;
+    }
+}
+
+-(void)setDirectionType:(WaveDirectionType)directionType
+{
+    if (_directionType != directionType) {
+        _directionType = directionType;
+        direction = _directionType;
+    }
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.

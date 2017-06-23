@@ -61,6 +61,9 @@
 -(void)setUpWaveView
 {
     _doubleWaveView = [[JYWaveView alloc] initWithFrame:CGRectMake(0, self.bounds.size.height - 10, self.bounds.size.width, 10)];
+    _doubleWaveView.frontColor = [UIColor whiteColor];
+    _doubleWaveView.insideColor = [UIColor colorWithRed:0.4 green:0.78 blue:0.68 alpha:1];
+    _doubleWaveView.directionType = WaveDirectionTypeFoward;
     [self addSubview:_doubleWaveView];
 }
 

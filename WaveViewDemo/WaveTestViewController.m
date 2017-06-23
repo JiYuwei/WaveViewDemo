@@ -28,8 +28,6 @@ static const CGFloat cellHeight = 50;
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT - 64 - 49) style:UITableViewStyleGrouped];
     _tableView.dataSource = self;
     _tableView.delegate = self;
-//    _tableView.separatorColor = [UIColor blackColor];
-//    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:_tableView];
 }
 
@@ -47,6 +45,10 @@ static const CGFloat cellHeight = 50;
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
         JYWaveView *waveView = [[JYWaveView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, cellHeight)];
+        waveView.frontSpeed = 0.01;
+        waveView.insideSpeed = 0.01;
+        waveView.frontColor = MAIN_COLOR;
+        waveView.insideColor = [UIColor colorWithRed:0.4 green:0.78 blue:0.68 alpha:1];
         [cell addSubview:waveView];
     }
     
