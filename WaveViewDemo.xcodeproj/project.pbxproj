@@ -27,6 +27,8 @@
 		09CFACE81EFBDD0A00E0F94C /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09CFACE71EFBDD0A00E0F94C /* HeaderView.m */; };
 		09CFACEC1EFBE42F00E0F94C /* header@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09CFACEB1EFBE42F00E0F94C /* header@2x.png */; };
 		09CFACF01EFBEA0C00E0F94C /* JYWaveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09CFACEF1EFBEA0C00E0F94C /* JYWaveView.m */; };
+		09CFACF41EFC14DD00E0F94C /* WeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 09CFACF31EFC14DD00E0F94C /* WeakProxy.m */; };
+		09CFACF71EFCE13F00E0F94C /* WaveTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09CFACF61EFCE13F00E0F94C /* WaveTestViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +83,10 @@
 		09CFACEB1EFBE42F00E0F94C /* header@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "header@2x.png"; path = "images/header@2x.png"; sourceTree = "<group>"; };
 		09CFACEE1EFBEA0C00E0F94C /* JYWaveView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JYWaveView.h; path = JYWaveView/JYWaveView.h; sourceTree = "<group>"; };
 		09CFACEF1EFBEA0C00E0F94C /* JYWaveView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JYWaveView.m; path = JYWaveView/JYWaveView.m; sourceTree = "<group>"; };
+		09CFACF21EFC14DD00E0F94C /* WeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeakProxy.h; path = WeakProxy/WeakProxy.h; sourceTree = "<group>"; };
+		09CFACF31EFC14DD00E0F94C /* WeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WeakProxy.m; path = WeakProxy/WeakProxy.m; sourceTree = "<group>"; };
+		09CFACF51EFCE13F00E0F94C /* WaveTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveTestViewController.h; sourceTree = "<group>"; };
+		09CFACF61EFCE13F00E0F94C /* WaveTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaveTestViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +137,7 @@
 		09CFAC8A1EFBB91D00E0F94C /* WaveViewDemo */ = {
 			isa = PBXGroup;
 			children = (
+				09CFACF11EFC14AB00E0F94C /* WeakProxy */,
 				09CFACED1EFBE9AB00E0F94C /* JYWaveView */,
 				09CFACE51EFBD90500E0F94C /* Views */,
 				09CFAC8E1EFBB91D00E0F94C /* AppDelegate.h */,
@@ -143,6 +150,8 @@
 				09CFACCE1EFBBDC200E0F94C /* HomeViewController.m */,
 				09CFACD01EFBBDD200E0F94C /* MeViewController.h */,
 				09CFACD11EFBBDD200E0F94C /* MeViewController.m */,
+				09CFACF51EFCE13F00E0F94C /* WaveTestViewController.h */,
+				09CFACF61EFCE13F00E0F94C /* WaveTestViewController.m */,
 				09CFACD31EFBC85100E0F94C /* images */,
 				09CFAC971EFBB91D00E0F94C /* Assets.xcassets */,
 				09CFAC9C1EFBB91D00E0F94C /* Info.plist */,
@@ -210,6 +219,15 @@
 				09CFACEF1EFBEA0C00E0F94C /* JYWaveView.m */,
 			);
 			name = JYWaveView;
+			sourceTree = "<group>";
+		};
+		09CFACF11EFC14AB00E0F94C /* WeakProxy */ = {
+			isa = PBXGroup;
+			children = (
+				09CFACF21EFC14DD00E0F94C /* WeakProxy.h */,
+				09CFACF31EFC14DD00E0F94C /* WeakProxy.m */,
+			);
+			name = WeakProxy;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -361,8 +379,10 @@
 				09CFACCC1EFBBDB500E0F94C /* BaseViewController.m in Sources */,
 				09CFACD21EFBBDD200E0F94C /* MeViewController.m in Sources */,
 				09CFAC901EFBB91D00E0F94C /* AppDelegate.m in Sources */,
+				09CFACF41EFC14DD00E0F94C /* WeakProxy.m in Sources */,
 				09CFAC8D1EFBB91D00E0F94C /* main.m in Sources */,
 				09CFACCF1EFBBDC200E0F94C /* HomeViewController.m in Sources */,
+				09CFACF71EFCE13F00E0F94C /* WaveTestViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

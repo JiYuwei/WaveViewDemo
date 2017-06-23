@@ -7,6 +7,7 @@
 //
 
 #import "MeViewController.h"
+#import "WaveTestViewController.h"
 #import "HeaderView.h"
 
 static const CGFloat cellHeight = 50;
@@ -22,10 +23,24 @@ static const CGFloat cellHeight = 50;
 
 @implementation MeViewController
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    BOOL anim = self.navigationController.viewControllers.count > 1;
+    [self.navigationController setNavigationBarHidden:YES animated:anim];
+    [super viewWillAppear:animated];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    [super viewWillDisappear:animated];
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationController.navigationBar.hidden = YES;
+    
     self.navigationItem.title = @"我";
     
     [self prepareData];
@@ -36,8 +51,8 @@ static const CGFloat cellHeight = 50;
 {
     _dataArray = [NSMutableArray array];
     
-    NSArray *array1 = @[@"标题 1",@"标题 2"];
-    NSArray *array2 = @[@"标题 3",@"标题 4",@"标题 5"];
+    NSArray *array1 = @[@"波形测试",@"未开放"];
+    NSArray *array2 = @[@"未开放",@"未开放",@"未开放"];
     
     [_dataArray addObject:array1];
     [_dataArray addObject:array2];
@@ -96,7 +111,10 @@ static const CGFloat cellHeight = 50;
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
+    if (indexPath.section == 0 && indexPath.row == 0) {
+        WaveTestViewController *testVC=[[WaveTestViewController alloc] init];
+        [self.navigationController pushViewController:testVC animated:YES];
+    }
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -108,7 +126,6 @@ static const CGFloat cellHeight = 50;
 {
     return 20;
 }
-
 
 
 - (void)didReceiveMemoryWarning {

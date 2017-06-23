@@ -7,12 +7,15 @@
 //
 
 #import "JYWaveView.h"
+#import "WeakProxy.h"
 
 @interface JYWaveView ()
 
 @property(nonatomic,strong)CADisplayLink *waveDisplayLink;
 @property(nonatomic,strong)CAShapeLayer *firstWaveLayer;
 @property(nonatomic,strong)CAShapeLayer *secondWaveLayer;
+
+@property(nonatomic,strong)WeakProxy *proxy;
 
 @end
 
@@ -26,7 +29,7 @@
     CGFloat offsetF;    // φ firstLayer
     CGFloat offsetS;    // φ secondLayer
     CGFloat currentK;   // k
-    CGFloat waveSpeed;
+    CGFloat waveSpeed;  // 移动速度
 }
 
 /*
@@ -40,6 +43,9 @@
 -(instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
+        _proxy = [WeakProxy alloc];
+        _proxy.target = self;
+        
         [self createWaves];
     }
     
@@ -68,7 +74,7 @@
     [self.layer insertSublayer:_secondWaveLayer below:_firstWaveLayer];
     
     
-    _waveDisplayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(refreshCurrentWave:)];
+    _waveDisplayLink = [CADisplayLink displayLinkWithTarget:self.proxy selector:@selector(refreshCurrentWave:)];
     [_waveDisplayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
 }
 
@@ -106,10 +112,15 @@
     CGPathRelease(path);
 }
 
+
 -(void)dealloc
 {
+    NSLog(@"WaveView dealloc");
     [_waveDisplayLink invalidate];
+    _waveDisplayLink = nil;
 }
+
+
 
 /*
 // Only override drawRect: if you perform custom drawing.
