@@ -10,6 +10,8 @@
 
 @interface WeakProxy : NSProxy
 
-@property(nonatomic, weak) id target;
+@property(nonatomic, weak, readonly) id target;
+
++(instancetype)proxyWithTarget:(id)target;
 
 @end

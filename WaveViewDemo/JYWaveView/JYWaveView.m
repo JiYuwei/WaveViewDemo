@@ -46,8 +46,8 @@
 -(instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
-        _proxy = [WeakProxy alloc];
-        _proxy.target = self;
+        
+        _proxy = [WeakProxy proxyWithTarget:self];
         
         [self configWaveProperties];
         [self createWaves];
