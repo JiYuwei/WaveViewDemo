@@ -38,7 +38,7 @@
 /*
  y = Asin(ωx+φ)+k
  A表示振幅，使用这个变量来调整波浪的高度
- ω表示周期，使用这个变量来调整波浪密集度
+ ω表示频率，使用这个变量来调整波浪密集度
  φ表示初相，使用这个变量来调整波浪初始位置
  k表示高度，使用这个变量来调整波浪在屏幕中y轴的位置。
  */
@@ -91,6 +91,7 @@
     
     _waveDisplayLink = [CADisplayLink displayLinkWithTarget:self.proxy selector:@selector(refreshCurrentWave:)];
     [_waveDisplayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
+//    [self refreshCurrentWave:nil];
 }
 
 -(void)refreshCurrentWave:(CADisplayLink *)displayLink
