@@ -89,7 +89,7 @@
     [self.layer insertSublayer:_insideWaveLayer below:_frontWaveLayer];
     
     
-    _waveDisplayLink = [CADisplayLink displayLinkWithTarget:self.proxy selector:@selector(refreshCurrentWave:)];
+    _waveDisplayLink = [CADisplayLink displayLinkWithTarget:_proxy selector:@selector(refreshCurrentWave:)];
     [_waveDisplayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
 //    [self refreshCurrentWave:nil];
 }
