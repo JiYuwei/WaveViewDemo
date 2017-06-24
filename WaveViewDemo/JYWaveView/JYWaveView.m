@@ -119,7 +119,6 @@
     
     CGPathAddLineToPoint(path, nil, waveWidth, waveHeight);
     CGPathAddLineToPoint(path, nil, 0, waveHeight);
-    CGPathAddLineToPoint(path, nil, 0, currentK);
     
     CGPathCloseSubpath(path);
     
