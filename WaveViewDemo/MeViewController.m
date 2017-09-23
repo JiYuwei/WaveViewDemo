@@ -59,14 +59,14 @@ static const CGFloat cellHeight = 50;
 
 - (void)createTableView
 {
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, -20, SCREENWIDTH, SCREENHEIGHT + 20 - 49) style:UITableViewStyleGrouped];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, -50, SCREENWIDTH, SCREENHEIGHT) style:UITableViewStyleGrouped];
     _tableView.dataSource = self;
     _tableView.delegate = self;
 //    _tableView.separatorColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1];
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:_tableView];
     
-    _headerView = [[HeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, 240)];
+    _headerView = [[HeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, 300)];
     _tableView.tableHeaderView = _headerView;
 }
 
