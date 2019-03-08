@@ -29,6 +29,9 @@
 		09CFACF01EFBEA0C00E0F94C /* JYWaveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09CFACEF1EFBEA0C00E0F94C /* JYWaveView.m */; };
 		09CFACF71EFCE13F00E0F94C /* WaveTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09CFACF61EFCE13F00E0F94C /* WaveTestViewController.m */; };
 		09CFACFA1EFD129800E0F94C /* WeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 09CFACF91EFD129800E0F94C /* WeakProxy.m */; };
+		09EFA2A9223233A100EA2A76 /* JYRDView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EFA2A8223233A100EA2A76 /* JYRDView.m */; };
+		09EFA2AF22327B8E00EA2A76 /* RDLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EFA2AE22327B8E00EA2A76 /* RDLabel.m */; };
+		09EFA2B222327BAF00EA2A76 /* MaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EFA2B122327BAF00EA2A76 /* MaskView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +90,12 @@
 		09CFACF61EFCE13F00E0F94C /* WaveTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaveTestViewController.m; sourceTree = "<group>"; };
 		09CFACF81EFD129800E0F94C /* WeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeakProxy.h; path = JYWaveView/WeakProxy.h; sourceTree = "<group>"; };
 		09CFACF91EFD129800E0F94C /* WeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WeakProxy.m; path = JYWaveView/WeakProxy.m; sourceTree = "<group>"; };
+		09EFA2A7223233A100EA2A76 /* JYRDView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JYRDView.h; path = JYWaveView/JYRDView.h; sourceTree = "<group>"; };
+		09EFA2A8223233A100EA2A76 /* JYRDView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = JYRDView.m; path = JYWaveView/JYRDView.m; sourceTree = "<group>"; };
+		09EFA2AD22327B8E00EA2A76 /* RDLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RDLabel.h; path = JYWaveView/RDLabel.h; sourceTree = "<group>"; };
+		09EFA2AE22327B8E00EA2A76 /* RDLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RDLabel.m; path = JYWaveView/RDLabel.m; sourceTree = "<group>"; };
+		09EFA2B022327BAF00EA2A76 /* MaskView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MaskView.h; path = JYWaveView/MaskView.h; sourceTree = "<group>"; };
+		09EFA2B122327BAF00EA2A76 /* MaskView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MaskView.m; path = JYWaveView/MaskView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +227,12 @@
 				09CFACF91EFD129800E0F94C /* WeakProxy.m */,
 				09CFACEE1EFBEA0C00E0F94C /* JYWaveView.h */,
 				09CFACEF1EFBEA0C00E0F94C /* JYWaveView.m */,
+				09EFA2A7223233A100EA2A76 /* JYRDView.h */,
+				09EFA2A8223233A100EA2A76 /* JYRDView.m */,
+				09EFA2B022327BAF00EA2A76 /* MaskView.h */,
+				09EFA2B122327BAF00EA2A76 /* MaskView.m */,
+				09EFA2AD22327B8E00EA2A76 /* RDLabel.h */,
+				09EFA2AE22327B8E00EA2A76 /* RDLabel.m */,
 			);
 			name = JYWaveView;
 			sourceTree = "<group>";
@@ -365,12 +380,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09EFA2B222327BAF00EA2A76 /* MaskView.m in Sources */,
 				09CFACFA1EFD129800E0F94C /* WeakProxy.m in Sources */,
 				09CFACF01EFBEA0C00E0F94C /* JYWaveView.m in Sources */,
 				09CFACE81EFBDD0A00E0F94C /* HeaderView.m in Sources */,
 				09CFACC01EFBBBE700E0F94C /* BaseTabBarController.m in Sources */,
 				09CFACCC1EFBBDB500E0F94C /* BaseViewController.m in Sources */,
 				09CFACD21EFBBDD200E0F94C /* MeViewController.m in Sources */,
+				09EFA2AF22327B8E00EA2A76 /* RDLabel.m in Sources */,
+				09EFA2A9223233A100EA2A76 /* JYRDView.m in Sources */,
 				09CFAC901EFBB91D00E0F94C /* AppDelegate.m in Sources */,
 				09CFAC8D1EFBB91D00E0F94C /* main.m in Sources */,
 				09CFACCF1EFBBDC200E0F94C /* HomeViewController.m in Sources */,

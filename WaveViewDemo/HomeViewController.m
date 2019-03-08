@@ -7,6 +7,7 @@
 //
 
 #import "HomeViewController.h"
+#import "JYRDView.h"
 
 @interface HomeViewController ()
 
@@ -19,14 +20,25 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.title = @"首页";
     
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 40)];
-    label.center = CGPointMake(SCREENWIDTH / 2, SCREENHEIGHT / 2 - 40);
-    label.font =[UIFont systemFontOfSize:30];
-    label.textColor = MAIN_COLOR;
-    label.textAlignment = NSTextAlignmentCenter;
-    label.text = @"这里是首页";
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:nil];
+    self.navigationItem.rightBarButtonItem = item;
     
-    [self.view addSubview:label];
+    JYRDView *rdView = [[JYRDView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    rdView.center = CGPointMake(SCREENWIDTH/2, SCREENHEIGHT/3);
+//    rdView.logoColor = [UIColor cyanColor];
+//    rdView.logoTitle = @"NO";
+//    rdView.waveSpped = 0.1;
+//    rdView.waveDirType = WaveDirectionTypeBackWard;
+    [self.view addSubview:rdView];
+    
+//    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 40)];
+//    label.center = CGPointMake(SCREENWIDTH / 2, SCREENHEIGHT / 2 - 40);
+//    label.font =[UIFont systemFontOfSize:30];
+//    label.textColor = MAIN_COLOR;
+//    label.textAlignment = NSTextAlignmentCenter;
+//    label.text = @"这里是首页";
+//
+//    [self.view addSubview:label];
 }
 
 - (void)didReceiveMemoryWarning {
